@@ -1,0 +1,43 @@
+---
+import Layout from '../components/Layout.astro'
+import pkg from '../../package.json'
+const badges = [
+  {
+    src: 'npm/v',
+    alt: 'version',
+  },
+  {
+    src: 'bundlephobia/minzip',
+    alt: 'minified + gzip',
+  },
+  {
+    src: 'npm/dm',
+    alt: 'downloads per month',
+  },
+  {
+    src: 'npm/types',
+    alt: 'types',
+  },
+]
+---
+
+<Layout>
+  <h1>{pkg.name}</h1>
+  <p>{pkg.description}.</p>
+  <div class="d-flex flex-wrap gap-2">
+    {badges.map((badge) => <img src={`https://img.shields.io/${badge.src}/${pkg.name}${badge.src.startsWith('bundle') ? `/${pkg.version}` : ''}`} alt={badge.alt} />)}
+  </div>
+  <hr />
+  <h5>Features</h5>
+  <ul>
+    <li>Alert</li>
+    <li>Confirm</li>
+    <li>Prompt</li>
+  </ul>
+  <hr />
+  <h5>Repository</h5>
+  <a class="link-body-emphasis" href={pkg.repository} target="_blank">{pkg.repository}</a>
+  <hr />
+  <h5>License</h5>
+  <p>{pkg.license}</p>
+</Layout>

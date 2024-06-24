@@ -1,0 +1,24 @@
+$name: 'use-bootstrap-dialog';
+$alert: #{$name}-alert;
+$confirm: #{$name}-confirm;
+
+.#{$name} {
+  .btn-close {
+    flex-shrink: 0;
+  }
+
+  .modal-footer .btn {
+    min-width: 5rem;
+  }
+}
+
+.#{$alert} {
+  .modal-body-alert {
+    display: flex;
+    gap: .5rem;
+
+    .btn-close {
+      margin-left: auto;
+    }
+  }
+}

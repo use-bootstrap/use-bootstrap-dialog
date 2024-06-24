@@ -1,0 +1,182 @@
+---
+import { Code } from 'astro:components'
+import Layout from '../components/Layout.astro'
+import CodeAlertBasic from '../components/demo/alert-basic?raw'
+import CodeAlertHTML from '../components/demo/alert-html?raw'
+import CodeAlertSizeSm from '../components/demo/alert-size-sm?raw'
+import CodeAlertSizeLg from '../components/demo/alert-size-lg?raw'
+import CodeAlertSizeXl from '../components/demo/alert-size-xl?raw'
+import CodeAlertFullscreen from '../components/demo/alert-fullscreen?raw'
+import CodeAlertNoCloseBtn from '../components/demo/alert-no-close-btn?raw'
+import CodeAlertStaticBackdrop from '../components/demo/alert-static-backdrop?raw'
+import CodeAlertCloseManually from '../components/demo/alert-close-manually?raw'
+import CodeConfirmBasic from '../components/demo/confirm-basic?raw'
+import CodeConfirmCustom from '../components/demo/confirm-custom?raw'
+import CodePromptBasic from '../components/demo/prompt-basic?raw'
+import CodePromptCustom from '../components/demo/prompt-custom?raw'
+
+const alerts = [
+  {
+    key: 'alert-basic',
+    label: 'Basic',
+    script: CodeAlertBasic,
+    active: true,
+  },
+  {
+    key: 'alert-custom',
+    label: 'HTML',
+    script: CodeAlertHTML,
+  },
+  {
+    key: 'alert-size-sm',
+    label: 'Small size',
+    script: CodeAlertSizeSm,
+  },
+  {
+    key: 'alert-size-lg',
+    label: 'Large size',
+    script: CodeAlertSizeLg,
+  },
+  {
+    key: 'alert-size-xl',
+    label: 'Extra large size',
+    script: CodeAlertSizeXl,
+  },
+  {
+    key: 'alert-fullscreen',
+    label: 'Fullscreen',
+    script: CodeAlertFullscreen,
+  },
+  {
+    key: 'alert-no-close-btn',
+    label: 'Hide close button',
+    script: CodeAlertNoCloseBtn,
+  },
+  {
+    key: 'alert-static-backdrop',
+    label: 'Static backdrop',
+    script: CodeAlertStaticBackdrop,
+  },
+  {
+    key: 'alert-close-manually',
+    label: 'Close manually',
+    script: CodeAlertCloseManually,
+  },
+]
+
+const confirms = [
+  {
+    key: 'confirm-basic',
+    label: 'Basic',
+    script: CodeConfirmBasic,
+    active: true,
+  },
+  {
+    key: 'confirm-custom',
+    label: 'Custom',
+    script: CodeConfirmCustom,
+  },
+]
+
+const prompts = [
+  {
+    key: 'prompt-basic',
+    label: 'Basic',
+    script: CodePromptBasic,
+    active: true,
+  },
+  {
+    key: 'prompt-custom',
+    label: 'Custom',
+    script: CodePromptCustom,
+  },
+]
+---
+
+<Layout title="Demo">
+  <div id="demo">
+    <h1>Alert</h1>
+    <p>Use alerts when you want to display a message to the user, but you don't want to give them any choice to proceed.</p>
+    <ul class="nav nav-pills" id="alertTab" role="tablist">
+      {
+        alerts.map((i) => (
+          <li class="nav-item" role="presentation">
+            <button data-script={i.script} class="nav-link" class:list={[{ active: i.active }]} id={`${i.key}-tab`} data-bs-toggle="tab" data-bs-target={`#${i.key}-tab-pane`} type="button" role="tab" aria-controls={`${i.key}-tab-pane`} aria-selected="false">
+              {i.label}
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="tab-content mt-3" id="alertTabContent">
+      {
+        alerts.map((i) => (
+          <div class="tab-pane" class:list={[{ 'show active': i.active }]} id={`${i.key}-tab-pane`} role="tabpanel" aria-labelledby={`${i.key}-tab`} tabindex="0">
+            <Code lang="javascript" code={i.script} theme="one-dark-pro" />
+          </div>
+        ))
+      }
+    </div>
+
+    <h1 class="mt-5">Confirm</h1>
+    <p>Use confirms when you want to present a yes-or-no option to the user.</p>
+    <ul class="nav nav-pills" id="confirmTab" role="tablist">
+      {
+        confirms.map((i) => (
+          <li class="nav-item" role="presentation">
+            <button data-script={i.script} class="nav-link" class:list={[{ active: i.active }]} id={`${i.key}-tab`} data-bs-toggle="tab" data-bs-target={`#${i.key}-tab-pane`} type="button" role="tab" aria-controls={`${i.key}-tab-pane`} aria-selected="false">
+              {i.label}
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="tab-content mt-3" id="confirmTabContent">
+      {
+        confirms.map((i) => (
+          <div class="tab-pane" class:list={[{ 'show active': i.active }]} id={`${i.key}-tab-pane`} role="tabpanel" aria-labelledby={`${i.key}-tab`} tabindex="0">
+            <Code lang="javascript" code={i.script} theme="one-dark-pro" />
+          </div>
+        ))
+      }
+    </div>
+
+    <h1 class="mt-5">Prompt</h1>
+    <p>The prompt method displays a dialog box that prompts the user for input.</p>
+    <ul class="nav nav-pills" id="promptTab" role="tablist">
+      {
+        prompts.map((i) => (
+          <li class="nav-item" role="presentation">
+            <button data-script={i.script} class="nav-link" class:list={[{ active: i.active }]} id={`${i.key}-tab`} data-bs-toggle="tab" data-bs-target={`#${i.key}-tab-pane`} type="button" role="tab" aria-controls={`${i.key}-tab-pane`} aria-selected="false">
+              {i.label}
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="tab-content mt-3" id="promptTabContent">
+      {
+        prompts.map((i) => (
+          <div class="tab-pane" class:list={[{ 'show active': i.active }]} id={`${i.key}-tab-pane`} role="tabpanel" aria-labelledby={`${i.key}-tab`} tabindex="0">
+            <Code lang="javascript" code={i.script} theme="one-dark-pro" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { Modal, Tab } from 'bootstrap-esm'
+  import UseBootstrapDialog from '../lib/use-bootstrap-dialog'
+  ;(window as any).bootstrap = {} as any
+  ;(window as any).bootstrap.Modal = Modal
+  ;(window as any).bootstrap.Tab = Tab
+  ;(window as any).UseBootstrapDialog = UseBootstrapDialog
+
+  document.querySelectorAll<HTMLButtonElement>('#demo .nav-link').forEach((link) => {
+    link.addEventListener('click', function () {
+      new Function(`return (() => {${this.dataset.script}})()`)()
+    })
+  })
+</script>

@@ -1,0 +1,79 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/variables-dark';
+@import '../node_modules/bootstrap/scss/mixins';
+
+:root {
+  --bs-font-sans-serif: 'Hind Siliguri';
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter Tight';
+  font-weight: 900;
+}
+
+.container {
+  max-width: 64rem;
+}
+
+.form-switch {
+
+  .form-check-input,
+  .form-check-label {
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.page-link:focus {
+  box-shadow: none;
+}
+
+.astro-code {
+  padding: 1rem 1.25rem;
+  border-radius: var(--bs-border-radius);
+
+  &.vitesse-light {
+    background-color: #fafaf9 !important;
+    box-shadow: inset 0 2px 4px 0 #0000000d;
+  }
+
+  &.one-dark-pro {
+    background-color: #2b3035 !important;
+    text-shadow: 1px 1px #000;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .badge {
+    font-family: 'Inter Tight';
+  }
+
+  #main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  #main-nav {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+// .modal.fade .modal-dialog {
+//   transition: transform 3s ease-out;
+// }
