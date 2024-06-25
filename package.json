@@ -50,7 +50,7 @@
     "build:css:prefix": "postcss dist/css/*.css --use autoprefixer --map --replace",
     "build:css:min": "esbuild dist/css/*.css --minify --outdir=dist/css --out-extension:.css=.min.css",
     "build:docs": "astro build",
-    "postbuild": "purgecss --css docs/assets/*.css --content docs/**/*.{html,js} --safelist use-bootstrap-dialog --output docs/assets/",
+    "postbuild": "purgecss --css docs/_astro/*.css --content docs/**/*.{html,js} --safelist use-bootstrap-dialog --output docs/_astro/",
     "preview": "astro preview --host",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
