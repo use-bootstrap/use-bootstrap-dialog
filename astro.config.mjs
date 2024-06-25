@@ -9,6 +9,7 @@ export default defineConfig({
   },
   build: {
     format: 'file',
+    assets: 'assets',
   },
   outDir: 'docs',
   server: {
