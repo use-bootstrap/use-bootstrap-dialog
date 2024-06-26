@@ -3,19 +3,19 @@ import Layout from '../components/Layout.astro'
 import pkg from '../../package.json'
 const badges = [
   {
-    src: 'npm/v',
+    src: `https://img.shields.io/npm/v/${pkg.name}`,
     alt: 'version',
   },
   {
-    src: 'bundlephobia/minzip',
+    src: `https://img.shields.io/bundlephobia/minzip/${pkg.name}/${pkg.version}`,
     alt: 'minified + gzip',
   },
   {
-    src: 'npm/dm',
+    src: `https://img.shields.io/npm/dm/${pkg.name}`,
     alt: 'downloads per month',
   },
   {
-    src: 'npm/types',
+    src: `https://badgen.net/npm/types/${pkg.name}`,
     alt: 'types',
   },
 ]
@@ -25,7 +25,7 @@ const badges = [
   <h1>{pkg.name}</h1>
   <p>{pkg.description}.</p>
   <div class="d-flex flex-wrap gap-2">
-    {badges.map((badge) => <img src={`https://img.shields.io/${badge.src}/${pkg.name}${badge.src.startsWith('bundle') ? `/${pkg.version}` : ''}`} alt={badge.alt} />)}
+    {badges.map((badge) => <img src={badge.src} alt={badge.alt} />)}
   </div>
   <hr />
   <h5>Features</h5>
