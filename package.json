@@ -61,7 +61,7 @@
     "@astrojs/solid-js": "^4.4.0",
     "@fontsource/hind-siliguri": "5.0.13",
     "@fontsource/inter-tight": "5.0.20",
-    "@types/node": "20.14.8",
+    "@types/node": "20.14.9",
     "astro": "4.11.1",
     "autoprefixer": "10.4.19",
     "bootstrap": "5.3.3",
