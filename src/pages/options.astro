@@ -1,12 +1,12 @@
 ---
 import { Code } from 'astro:components'
 import Layout from '../components/Layout.astro'
-import exampleGlobalOptions from '../components/install/example-global-options?raw'
-import defaultOptions from '../components/install/default-options?raw'
-import availableOptions from '../components/install/available-options?raw'
+import exampleGlobalOptions from '../components/options/example-global-options?raw'
+import defaultOptions from '../components/options/default-options?raw'
+import availableOptions from '../components/options/available-options?raw'
 ---
 
-<Layout title="Install">
+<Layout title="Options">
   <h1>Global options</h1>
   <p>You can configure options globally by assigning an object to the variable <code>"window.UseBootstrapDialogOptions"</code>. For example:</p>
   <Code lang="typescript" code={exampleGlobalOptions} theme="one-dark-pro" />
