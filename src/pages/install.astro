@@ -1,6 +1,6 @@
 ---
-import { Code } from 'astro:components'
 import Layout from '../components/Layout.astro'
+import Code from '../components/Code.astro'
 import pkg from '../../package.json'
 
 const npmImport = `import '${pkg.name}/dist/css/${pkg.name}.css'
@@ -48,19 +48,19 @@ const cdnExample = `<!doctype html>
       <ol>
         <li>
           <p>Install <code>{pkg.name}</code> in your Node.js powered apps with the npm package:</p>
-          <Code lang="bash" code={`npm install ${pkg.name}`} theme="one-dark-pro" />
+          <Code lang="bash" code={`npm install ${pkg.name}`} />
         </li>
         <li>
           <p>After installation, you can import the library into your project as follows:</p>
-          <Code lang="typescript" code={npmImport} theme="one-dark-pro" />
+          <Code lang="typescript" code={npmImport} />
         </li>
       </ol>
     </div>
     <div class="tab-pane" id="cdn-tab-pane" role="tabpanel" aria-labelledby="cdn-tab" tabindex="0">
       <p>You can use <code>{pkg.name}</code> directly via CDN:</p>
-      <Code lang="html" code={`${cdnCss}\n${cdnJs}`} theme="one-dark-pro" />
+      <Code lang="html" code={`${cdnCss}\n${cdnJs}`} />
       <p>Example</p>
-      <Code lang="html" code={cdnExample} theme="one-dark-pro" />
+      <Code lang="html" code={cdnExample} />
     </div>
     <div class="tab-pane" id="download-tab-pane" role="tabpanel" aria-labelledby="download-tab" tabindex="0">
       <p>Visit the <a href={`${pkg.repository}/releases`} target="_blank">GitHub releases page</a> to download the latest version</p>

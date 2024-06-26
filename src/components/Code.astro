@@ -1,0 +1,27 @@
+---
+import type { BuiltinLanguage, LanguageRegistration, SpecialLanguage } from 'shiki'
+
+interface Props {
+  code: string
+  /**
+   * The language of your code.
+   * Supports all languages listed here: https://shiki.style/languages
+   * Instructions for loading a custom language: https://shiki.style/guide/load-lang
+   *
+   * @default "html"
+   */
+  lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration
+}
+
+const { code, lang = 'html' } = Astro.props
+import { codeToHtml } from 'shiki'
+const value = await codeToHtml(code, {
+  lang: lang as any,
+  themes: {
+    light: 'one-light',
+    dark: 'one-dark-pro',
+  },
+})
+---
+
+<Fragment set:html={value} />

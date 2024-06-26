@@ -1,6 +1,6 @@
 ---
-import { Code } from 'astro:components'
 import Layout from '../components/Layout.astro'
+import Code from '../components/Code.astro'
 import CodeAlertBasic from '../components/demo/alert-basic?raw'
 import CodeAlertHTML from '../components/demo/alert-html?raw'
 import CodeAlertSizeSm from '../components/demo/alert-size-sm?raw'
@@ -112,7 +112,7 @@ const prompts = [
       {
         alerts.map((i) => (
           <div class="tab-pane" class:list={[{ 'show active': i.active }]} id={`${i.key}-tab-pane`} role="tabpanel" aria-labelledby={`${i.key}-tab`} tabindex="0">
-            <Code lang="javascript" code={i.script} theme="one-dark-pro" />
+            <Code lang="javascript" code={i.script} />
           </div>
         ))
       }
@@ -135,7 +135,7 @@ const prompts = [
       {
         confirms.map((i) => (
           <div class="tab-pane" class:list={[{ 'show active': i.active }]} id={`${i.key}-tab-pane`} role="tabpanel" aria-labelledby={`${i.key}-tab`} tabindex="0">
-            <Code lang="javascript" code={i.script} theme="one-dark-pro" />
+            <Code lang="javascript" code={i.script} />
           </div>
         ))
       }
@@ -158,7 +158,7 @@ const prompts = [
       {
         prompts.map((i) => (
           <div class="tab-pane" class:list={[{ 'show active': i.active }]} id={`${i.key}-tab-pane`} role="tabpanel" aria-labelledby={`${i.key}-tab`} tabindex="0">
-            <Code lang="javascript" code={i.script} theme="one-dark-pro" />
+            <Code lang="javascript" code={i.script} />
           </div>
         ))
       }
