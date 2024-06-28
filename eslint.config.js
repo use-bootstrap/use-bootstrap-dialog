@@ -23,7 +23,7 @@ export default antfu(
     },
   },
   {
-    files: ['src/components/install/*.ts'],
+    files: ['src/components/options/*.ts'],
     rules: {
       'unused-imports/no-unused-vars': 'off',
     },
