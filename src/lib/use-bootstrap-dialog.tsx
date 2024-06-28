@@ -116,7 +116,7 @@ const defaultPromptOptions = (form: string): PromptOptions => ({
 })
 
 const UseBootstrapDialog = {
-  alert(text: string | AlertOptions) {
+  alert(text: string | AlertOptions): AlertReturnType | undefined {
     const Modal = getModal()
     if (Modal) {
       let options: AlertOptions = merge(defaultAlertOptions, getOptionsFromGlobal('alert'))
@@ -165,7 +165,7 @@ const UseBootstrapDialog = {
     }
   },
 
-  confirm(confirmOptions: ConfirmOptions) {
+  confirm(confirmOptions: ConfirmOptions): void {
     const Modal = getModal()
     if (Modal) {
       const options: ConfirmOptions = merge(defaultConfirmOptions, getOptionsFromGlobal('confirm'), confirmOptions)
@@ -202,7 +202,7 @@ const UseBootstrapDialog = {
     }
   },
 
-  prompt(promptOptions: PromptOptions) {
+  prompt(promptOptions: PromptOptions): void {
     const Modal = getModal()
     if (Modal) {
       const formId = `form-${Math.random()}`
@@ -275,6 +275,11 @@ interface ModalFooter {
 export interface AlertOptions extends ModalTitle {
   staticBackdrop?: boolean
   modalDialogClassName?: string
+}
+
+interface AlertReturnType {
+  modal: HTMLDivElement
+  hide: () => void
 }
 
 export interface ConfirmOptions extends Content {
