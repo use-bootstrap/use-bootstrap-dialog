@@ -299,6 +299,10 @@ export interface PromptOptions extends ModalTitle {
   footer?: ModalFooter
 }
 
+export type Optional<T> = {
+  [K in keyof T]?: T[K] extends object ? Optional<T[K]> : T[K];
+}
+
 declare global {
   interface Window {
     UseBootstrapDialogOptions: {
@@ -307,8 +311,4 @@ declare global {
       prompt?: Optional<PromptOptions>
     }
   }
-}
-
-type Optional<T> = {
-  [K in keyof T]?: T[K] extends object ? Optional<T[K]> : T[K];
 }
